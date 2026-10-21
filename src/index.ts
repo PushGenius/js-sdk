@@ -63,7 +63,7 @@ const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
  * Server-side client for the PushGenius REST API.
  *
  * ```js
- * import { BigBrain } from "@pushgenius/node";
+ * import { BigBrain } from "@pushgenius/javascript";
  *
  * const bigBrain = new BigBrain({ appId: process.env.PUSHGENIUS_APP_ID, apiKey: process.env.PUSHGENIUS_API_KEY });
  * await bigBrain.notifications.create({
@@ -91,7 +91,7 @@ export class BigBrain {
     if (!options.apiKey) throw new PushGeniusError("apiKey is required");
     if (typeof window !== "undefined" && typeof document !== "undefined" && !options.dangerouslyAllowBrowser) {
       throw new PushGeniusError(
-        "@pushgenius/node runs on your server: the REST API key would be visible to anyone using this page. " +
+        "@pushgenius/javascript runs on your server: the REST API key would be visible to anyone using this page. " +
           "In the browser, use the PushGenius Web SDK instead.",
       );
     }
@@ -118,7 +118,7 @@ export class BigBrain {
     const headers: Record<string, string> = {
       Authorization: `Key ${this.apiKey}`,
       Accept: "application/json",
-      "User-Agent": `pushgenius-node/${VERSION}`,
+      "User-Agent": `pushgenius-javascript/${VERSION}`,
     };
     if (options.body !== undefined) headers["Content-Type"] = "application/json";
     const init = { method, headers, body: options.body === undefined ? undefined : JSON.stringify(options.body) };

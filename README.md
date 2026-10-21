@@ -1,4 +1,4 @@
-# @pushgenius/node
+# @pushgenius/javascript
 
 Send push notifications and manage users from your server with the [PushGenius REST API](https://pushgeni.us/docs/api). No dependencies; runs on Node.js 20+, Bun and Deno.
 
@@ -7,7 +7,7 @@ For apps and websites, use the [mobile SDKs](https://pushgeni.us/docs/sdks) and 
 ## Install
 
 ```sh
-npm install @pushgenius/node
+npm install @pushgenius/javascript
 ```
 
 ## Set up
@@ -15,7 +15,7 @@ npm install @pushgenius/node
 Find your app ID and REST API key in the dashboard under Settings.
 
 ```js
-import { BigBrain } from "@pushgenius/node";
+import { BigBrain } from "@pushgenius/javascript";
 
 const bigBrain = new BigBrain({
   appId: process.env.PUSHGENIUS_APP_ID,
@@ -23,7 +23,7 @@ const bigBrain = new BigBrain({
 });
 ```
 
-The package is an ES module. From CommonJS, `require("@pushgenius/node")` works on Node.js 22.12 and later.
+The package is an ES module. From CommonJS, `require("@pushgenius/javascript")` works on Node.js 22.12 and later.
 
 ## Send a notification
 
@@ -105,7 +105,7 @@ await bigBrain.users.delete("external_id", "user-123");
 Failed requests throw a `PushGeniusError` with the HTTP `status` and the API's `errors`:
 
 ```js
-import { PushGeniusError } from "@pushgenius/node";
+import { PushGeniusError } from "@pushgenius/javascript";
 
 try {
   await bigBrain.users.get("external_id", "nobody");
@@ -140,5 +140,5 @@ await bigBrain.notifications.create({ ..., idempotency_key: `order-${orderId}-sh
 Types are included. Request and response fields use the API's snake_case names, so the [REST API docs](https://pushgeni.us/docs/api) apply as written.
 
 ```ts
-import type { CreateNotificationParams, User } from "@pushgenius/node";
+import type { CreateNotificationParams, User } from "@pushgenius/javascript";
 ```
