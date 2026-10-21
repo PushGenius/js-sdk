@@ -7,7 +7,7 @@
   "homepage": "https://pushgeni.us/docs/api",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PushGenius/node-sdk.git"
+    "url": "git+https://github.com/PushGenius/js-sdk.git"
   },
   "keywords": ["push notifications", "pushgenius", "apns", "fcm", "web push"],
   "type": "module",
