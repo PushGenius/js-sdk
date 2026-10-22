@@ -14,7 +14,7 @@ import type {
 
 export type * from "./types.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 
 export type BigBrainOptions = {
   /** Dashboard → Settings. */
@@ -103,7 +103,8 @@ export class BigBrain {
     this.host = (options.host ?? "https://api.pushgeni.us").replace(/\/+$/, "");
     this.timeout = options.timeout ?? 30_000;
     this.maxRetries = options.maxRetries ?? 2;
-    this.fetchImpl = fetchImpl;
+    // Called as a plain function: Cloudflare Workers' fetch throws "Illegal invocation" when `this` is the client.
+    this.fetchImpl = (input, init) => fetchImpl(input, init);
     this.notifications = new Notifications(this);
     this.users = new Users(this);
     this.devices = new Devices(this);

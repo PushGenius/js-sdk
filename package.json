@@ -1,6 +1,6 @@
 {
   "name": "@pushgenius/javascript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PushGenius server SDK: send push notifications and manage users from Node.js, Bun or Deno",
   "license": "MIT",
   "author": "PushGenius",

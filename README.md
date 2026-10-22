@@ -1,6 +1,6 @@
 # @pushgenius/javascript
 
-Send push notifications and manage users from your server with the [PushGenius REST API](https://pushgeni.us/docs/api). No dependencies; runs on Node.js 20+, Bun and Deno.
+Send push notifications and manage users from your server with the [PushGenius REST API](https://pushgeni.us/docs/api). No dependencies; runs on Node.js 20+, Bun, Deno and Cloudflare Workers. For Supabase Edge Functions, AWS Lambda, Firebase and Workers, see the [serverless examples](https://pushgeni.us/docs/serverless).
 
 For apps and websites, use the [mobile SDKs](https://pushgeni.us/docs/sdks) and the [Web SDK](https://pushgeni.us/docs/web) instead. This package needs your REST API key, which must never ship to a browser or an app.
 

@@ -197,6 +197,16 @@ test("refuses to run in a browser unless told to", () => {
   }
 });
 
+test("calls fetch without the client as `this`, like Cloudflare Workers requires", async () => {
+  const strictFetch = fakeFetch({ body: { id: "n1" } });
+  const fetch = function (url, init) {
+    if (this !== undefined && this !== globalThis) throw new TypeError("Illegal invocation");
+    return strictFetch(url, init);
+  };
+  const result = await client(fetch).notifications.create({ contents: { en: "Hi" }, included_segments: ["All"] });
+  assert.equal(result.id, "n1");
+});
+
 test("PushGenius is the same class", () => {
   assert.equal(PushGenius, BigBrain);
 });
